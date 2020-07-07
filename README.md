@@ -11,6 +11,8 @@ wlan0: 192.168.0.5
 
 ### Install
 ```
+#!/bin/bash
+
 #  cat << EOF >> /bin/getips
 ifconfig | grep  "inet " -B 1 | sed 's/:.*//g' | sed 's/netmask.*//g' | sed 's/\n*inet/: /g' | tr -d ' ' | tr '\n' ' ' | sed 's/ -- /\n/g' | replace ' :' ': '; echo
 EOF
