@@ -14,7 +14,7 @@ tun0: 10.11.1.100
 ```
 #  cat << EOF >> /bin/getips
 #!/bin/bash
-ifconfig | grep  "inet " -B 1 | sed 's/:.*//g' | sed 's/netmask.*//g' | sed 's/\n*inet/: /g' | tr -d ' ' | tr '\n' ' ' | sed 's/ -- /\n/g' | replace ' :' ': '; echo
+ifconfig | grep  "inet " -B 1 | sed 's/:.*//g' | sed 's/netmask.*//g' | sed 's/\n*inet/: /g' | tr -d ' ' | tr '\n' ' ' | sed 's/ -- /\n/g' | sed 's/ \:/\: /g' ; echo
 EOF
 
 # chmod +x /bin/getips
